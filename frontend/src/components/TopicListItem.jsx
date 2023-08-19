@@ -6,7 +6,7 @@ const TopicListItem = (props) => {
 	//console.log("props", props);
 	return (
 		<div className="topic-list__item">
-			<span>{props.topic.title}</span>
+			<span>{props.title}</span>
 		</div>
 	);
 };

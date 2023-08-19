@@ -23,7 +23,7 @@ import TopicListItem from "./TopicListItem";
 
 const TopicList = (props) => {
 	const topics = props.topicData.map((item) => (
-		<TopicListItem key={item.id} topic={item} />
+		<TopicListItem key={item.id} {...item} />
 	));
 	return <div className="top-nav-bar__topic-list">{topics}</div>;
 };
