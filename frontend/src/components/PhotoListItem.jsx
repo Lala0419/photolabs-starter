@@ -13,7 +13,7 @@ const PhotoListItem = (props) => {
 
 	//console.log(props);
 	return (
-		<div className="photo-list__item">
+		<div className="photo-list__item" onClick={props.setModal}>
 			<div className="photo-list__fav-icon" onClick={clickHandler}>
 				<FavIcon selected={isFavorite} />
 			</div>

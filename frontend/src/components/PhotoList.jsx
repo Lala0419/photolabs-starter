@@ -10,6 +10,7 @@ const PhotoList = (props) => {
 			{...item}
 			displayHandler={props.displayHandler}
 			isFavorite={props.isFavorite}
+			setModal={props.setModal}
 		/>
 	));
 	return <ul className="photo-list">{photos}</ul>;

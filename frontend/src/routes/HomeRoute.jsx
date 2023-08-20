@@ -19,7 +19,11 @@ const HomeRoute = (props) => {
 	return (
 		<div className="home-route">
 			<TopNavigation topicData={props.topicData} display={display} />
-			<PhotoList photoData={props.photoData} displayHandler={displayHandler} />
+			<PhotoList
+				photoData={props.photoData}
+				displayHandler={displayHandler}
+				setModal={props.setModal}
+			/>
 		</div>
 	);
 };
