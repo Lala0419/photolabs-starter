@@ -8,9 +8,13 @@ const PhotoList = (props) => {
 		<PhotoListItem
 			key={item.id}
 			{...item}
-			displayHandler={props.displayHandler}
-			isFavorite={props.isFavorite}
-			setModal={props.setModal}
+			// displayHandler={props.displayHandler}
+			// isFavorite={props.isFavorite}
+			// setModal={props.setModal}
+			toggleFavorite={props.toggleFavorite}
+			isFavorite={props.isFavorite.includes(item.id)}
+			// displayHandler={props.displayHandler}
+			// isFavorite={props.isFavorite}
 		/>
 	));
 	return <ul className="photo-list">{photos}</ul>;

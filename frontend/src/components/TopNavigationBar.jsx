@@ -11,7 +11,7 @@ const TopNavigation = (props) => {
 			<TopicList topicData={props.topicData} />
 			<FavBadge
 				className="fav-badge fav-badge__count"
-				isFavPhotoExist={props.display}
+				isFavPhotoExist={props.isFavorite.length > 0}
 			/>
 		</div>
 	);

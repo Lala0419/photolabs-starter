@@ -4,12 +4,20 @@ import TopNavigation from "components/TopNavigationBar";
 import PhotoList from "components/PhotoList";
 
 const HomeRoute = (props) => {
-	const [display, setDisplay] = useState(0);
+	const [isFavorite, setIsFavorite] = useState([]);
 
-	const displayHandler = () => {
-		console.log(display);
-		setDisplay((prev) => prev + 1);
+	const toggleFavorite = (photoId) => {
+		if (isFavorite.includes(photoId)) {
+			setIsFavorite(isFavorite.filter((id) => id !== photoId));
+		} else {
+			setIsFavorite([...isFavorite, photoId]);
+		}
 	};
+
+	// const displayHandler = () => {
+	// 	console.log(display);
+	// 	setDisplay((prev) => prev + 1);
+	// };
 
 	// const displayHandler = (props) => {
 	// 	props === "plus" && setDisplay((prev) => prev + 1);
@@ -18,11 +26,16 @@ const HomeRoute = (props) => {
 
 	return (
 		<div className="home-route">
-			<TopNavigation topicData={props.topicData} display={display} />
+			{/* <TopNavigation topicData={props.topicData} display={display} />
 			<PhotoList
 				photoData={props.photoData}
 				displayHandler={displayHandler}
-				setModal={props.setModal}
+				setModal={props.setModal} */}
+			<TopNavigation topicData={props.topicData} isFavorite={isFavorite} />
+			<PhotoList
+				photoData={props.photoData}
+				isFavorite={isFavorite}
+				toggleFavorite={toggleFavorite}
 			/>
 		</div>
 	);
