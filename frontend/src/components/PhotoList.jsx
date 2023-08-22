@@ -10,9 +10,9 @@ const PhotoList = (props) => {
 			{...item}
 			// displayHandler={props.displayHandler}
 			// isFavorite={props.isFavorite}
-			// setModal={props.setModal}
 			toggleFavorite={props.toggleFavorite}
 			isFavorite={props.isFavorite.includes(item.id)}
+			toggleModal={props.toggleModal}
 			// displayHandler={props.displayHandler}
 			// isFavorite={props.isFavorite}
 		/>
