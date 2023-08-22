@@ -12,6 +12,7 @@ const TopNavigation = (props) => {
 			<FavBadge
 				className="fav-badge fav-badge__count"
 				isFavPhotoExist={props.isFavorite.length > 0}
+				isFavorite={props.isFavorite}
 			/>
 		</div>
 	);
