@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import FavIcon from "./FavIcon";
 
 import "../styles/FavBadge.scss";
 
-const FavBadge = ({ isFavPhotoExist }) => {
+const FavBadge = ({ isFavPhotoExist, isFavorite }) => {
+	//const [selected, setSelected] = useState(false);
+	//isFavPhotoExist ? setSelected(true) : setSelected(false);
+	// (???) why does this cause infinity loop tho..?
+
 	return (
 		<div className="fav-badge">
-			<FavIcon displayAlert={!!isFavPhotoExist} />
+			<FavIcon displayAlert={!!isFavPhotoExist} selected={isFavPhotoExist} />
+			<div className="fav-badge__count">
+				<span>{isFavorite.length}</span>
+			</div>
 		</div>
 	);
 };
