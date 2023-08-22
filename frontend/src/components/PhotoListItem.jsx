@@ -13,9 +13,13 @@ const PhotoListItem = (props) => {
 	const clickHandler = () => {
 		props.toggleFavorite(props.id);
 	};
-	//console.log(props);
+
+	const modalHandler = () => {
+		props.toggleModal(props.id);
+	};
+
 	return (
-		<div className="photo-list__item" onClick={props.setModal}>
+		<div className="photo-list__item" onClick={modalHandler}>
 			<div className="photo-list__fav-icon" onClick={clickHandler}>
 				<FavIcon selected={props.isFavorite} />
 			</div>
