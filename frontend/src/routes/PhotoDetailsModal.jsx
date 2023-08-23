@@ -17,7 +17,7 @@ const PhotoDetailsModal = (props) => {
 	// };
 
 	const renderSimilarPhotos = similarPhotosArray.map((photo) => (
-		<div key={photo.id}>
+		<div key={photo.id} className="similar-photo-list__item">
 			<div
 				className="photo-list__fav-icon"
 				onClick={() => {
@@ -26,7 +26,16 @@ const PhotoDetailsModal = (props) => {
 			>
 				<FavIcon selected={props.isFavorite.includes(photo.id)} />
 			</div>
-			<img src={photo.urls.regular} />
+			<img src={photo.urls.regular} className="similar-photo-list__image" />
+			<div className="photo-list__user-details">
+				<img className="photo-list__user-profile" src={photo.user.profile} />
+				<div className="photo-list__user-info">
+					<h2>{photo.user.name}</h2>
+					<h2 className="photo-list__user-location">
+						{photo.location.city} {photo.location.country}
+					</h2>
+				</div>
+			</div>
 		</div>
 	));
 
@@ -46,7 +55,7 @@ const PhotoDetailsModal = (props) => {
 				src={props.photoDetail.urls.regular}
 			/>
 			<div className="photo-details-modal__header">Similar Photos</div>
-			<div>{renderSimilarPhotos}</div>
+			<div className="photo-list">{renderSimilarPhotos}</div>
 		</div>
 	);
 };
