@@ -10,11 +10,13 @@ const HomeRoute = (props) => {
 	const [photoDetail, setPhotoDetail] = useState({});
 
 	const toggleFavorite = (photoId) => {
+		console.log("photoId", photoId);
 		if (isFavorite.includes(photoId)) {
 			setIsFavorite(isFavorite.filter((id) => id !== photoId));
 		} else {
 			setIsFavorite([...isFavorite, photoId]);
 		}
+		console.log("isFavorite", isFavorite);
 	};
 
 	const toggleModal = (photoId) => {
@@ -32,7 +34,14 @@ const HomeRoute = (props) => {
 				toggleFavorite={toggleFavorite}
 				toggleModal={toggleModal}
 			/>
-			{modal && <Modal toggleModal={toggleModal} photoDetail={photoDetail} />}
+			{modal && (
+				<Modal
+					toggleModal={toggleModal}
+					photoDetail={photoDetail}
+					toggleFavorite={toggleFavorite}
+					isFavorite={isFavorite}
+				/>
+			)}
 		</div>
 	);
 };
