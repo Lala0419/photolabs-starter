@@ -1,19 +1,23 @@
-import React, { useState } from "react";
-
+import React from "react";
+import useApplicationData from "hooks/useApplicationData";
 import "./App.scss";
 import HomeRoute from "routes/HomeRoute";
-import PhotoData from "./mocks/photos";
-import TopicData from "./mocks/topics";
+// import PhotoData from "./mocks/photos";
+// import TopicData from "./mocks/topics";
 
 // Note: Rendering a single component to build components in isolation
-const App = () => {
+const App = (props) => {
+	const { state, toggleFavorite, toggleModal, PhotoData, TopicData } =
+		useApplicationData();
+
 	return (
 		<div className="App">
 			<HomeRoute
+				state={state}
 				photoData={PhotoData}
 				topicData={TopicData}
-				// setModal={toggleModal}
-				//modal={Modal}
+				toggleFavorite={toggleFavorite}
+				toggleModal={toggleModal}
 			/>
 		</div>
 	);
