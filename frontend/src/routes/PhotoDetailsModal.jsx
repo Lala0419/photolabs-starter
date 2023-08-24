@@ -12,9 +12,6 @@ const PhotoDetailsModal = (props) => {
 	const clickRegularHandler = () => {
 		props.toggleFavorite(props.photoDetail.id);
 	};
-	// const clickSimilarHandler = () => {
-	// 	props.toggleFavorite(photo.id);
-	// };
 
 	const renderSimilarPhotos = similarPhotosArray.map((photo) => (
 		<div key={photo.id} className="similar-photo-list__item">
