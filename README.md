@@ -2,10 +2,12 @@
 
 The PhotoLabs project for the Web Development React course programming.
 
-# Peer dependencies
+## Peer dependencies
 
-`npm install react@^16.9.0
-npm install --save-dev react-test-renderer@^16.9.0`
+```sh
+npm install react@^16.9.0
+npm install --save-dev react-test-renderer@^16.9.0
+```
 
 # Photolabs
 
