@@ -7,15 +7,14 @@ import HomeRoute from "routes/HomeRoute";
 
 // Note: Rendering a single component to build components in isolation
 const App = (props) => {
-	const { state, toggleFavorite, toggleModal, PhotoData, TopicData } =
-		useApplicationData();
+	const { state, toggleFavorite, toggleModal } = useApplicationData();
 
 	return (
 		<div className="App">
 			<HomeRoute
 				state={state}
-				photoData={PhotoData}
-				topicData={TopicData}
+				// photoData={photoData}
+				// topicData={topicData}
 				toggleFavorite={toggleFavorite}
 				toggleModal={toggleModal}
 			/>
