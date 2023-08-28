@@ -29,11 +29,11 @@ const HomeRoute = (props) => {
 	return (
 		<div className="home-route">
 			<TopNavigation
-				topicData={props.topicData}
+				topicData={props.state.topicData}
 				isFavorite={props.state.isFavorite}
 			/>
 			<PhotoList
-				photoData={props.photoData}
+				photoData={props.state.photoData}
 				isFavorite={props.state.isFavorite}
 				toggleFavorite={props.toggleFavorite}
 				toggleModal={props.toggleModal}
