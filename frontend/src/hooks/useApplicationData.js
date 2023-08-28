@@ -1,19 +1,25 @@
-import React, { useState, useReducer } from "react";
-const initialState = { isFavorite: [], modal: false, photoDetail: {} };
-import TopicData from "../mocks/topics";
-import PhotoData from "../mocks/photos";
+import React, { useEffect, useReducer } from "react";
+const initialState = {
+	isFavorite: [],
+	modal: false,
+	photoDetail: {},
+	photoData: [],
+	topicData: [],
+};
+//import TopicData from "../mocks/topics";
+//import PhotoData from "../mocks/photos";
 
 export const ACTIONS = {
 	FAV_PHOTO_ADDED: "FAV_PHOTO_ADDED",
 	FAV_PHOTO_REMOVED: "FAV_PHOTO_REMOVED",
-	// SET_PHOTO_DATA: "SET_PHOTO_DATA",
-	// SET_TOPIC_DATA: "SET_TOPIC_DATA",
+	SET_PHOTO_DATA: "SET_PHOTO_DATA",
+	SET_TOPIC_DATA: "SET_TOPIC_DATA",
 	SELECT_PHOTO: "SELECT_PHOTO",
 	// DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
 };
 
 function reducer(state, action) {
-	console.log("action", action);
+	//console.log("action", action);
 	switch (action.type) {
 		case ACTIONS.FAV_PHOTO_ADDED:
 			return {
@@ -29,7 +35,17 @@ function reducer(state, action) {
 			return {
 				...state,
 				modal: !state.modal,
-				photoDetail: PhotoData[action.photoId - 1],
+				photoDetail: state.photoData[action.photoId - 1],
+			};
+		case ACTIONS.SET_PHOTO_DATA:
+			return {
+				...state,
+				photoData: action.photoData,
+			};
+		case ACTIONS.SET_TOPIC_DATA:
+			return {
+				...state,
+				topicData: action.topicData,
 			};
 		default:
 			throw new Error(
@@ -45,10 +61,26 @@ export default function useApplicationData() {
 	const [modal, setModal] = useState(false);
 	const [photoDetail, setPhotoDetail] = useState({});
 */
-	// /* insert app levels actions below */
+
+	useEffect(() => {
+		fetch(`/api/photos `)
+			.then((res) => res.json())
+			.then((data) => {
+				// console.log("data", data);
+				dispatch({ type: "SET_PHOTO_DATA", photoData: data });
+			});
+	}, []);
+
+	useEffect(() => {
+		fetch(`/api/topics`)
+			.then((res) => res.json())
+			.then((data) => {
+				dispatch({ type: "SET_TOPIC_DATA", topicData: data });
+			});
+	});
 
 	const toggleFavorite = (photoId) => {
-		console.log("photoId", photoId);
+		//console.log("photoId", photoId);
 		if (state.isFavorite.includes(photoId)) {
 			//setIsFavorite(isFavorite.filter((id) => id !== photoId));
 			dispatch({ type: "FAV_PHOTO_REMOVED", photoId: photoId });
@@ -83,7 +115,5 @@ export default function useApplicationData() {
 		state,
 		toggleFavorite,
 		toggleModal,
-		PhotoData,
-		TopicData,
 	};
 }
