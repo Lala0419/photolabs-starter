@@ -5,7 +5,6 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import FavIcon from "components/FavIcon";
 
 const PhotoDetailsModal = (props) => {
-	console.log("props", props);
 	const similarPhotos = { ...props.photoDetail.similar_photos };
 	const similarPhotosArray = Object.values(similarPhotos);
 
