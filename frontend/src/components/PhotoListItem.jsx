@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "../styles/PhotoListItem.scss";
 import "../styles/PhotoFavButton.scss";
 import FavIcon from "./FavIcon";
 
 const PhotoListItem = (props) => {
-	// const [isFavorite, setIsFavorite] = useState(false);
-	// const clickHandler = () => {
-	// 	setIsFavorite((prev) => !prev);
-	// 	!isFavorite && props.displayHandler();
-	// };
+	const { id, similar_photos, location, user, urls } = props;
+
 	const clickHandler = () => {
 		props.toggleFavorite(props.id);
 	};
 
 	const modalHandler = () => {
-		props.toggleModal(props.id);
+		props.toggleModal({ id, similar_photos, location, user, urls });
 	};
 
 	return (
